@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
 
-public class Response{
+public class AutoResponse {
 
 	@SerializedName("wkda")
 	private HashMap<String,String> wkda;
@@ -52,12 +52,12 @@ public class Response{
 
 	@Override
  	public String toString(){
-		return 
-			"Response{" + 
-			"wkda = '" + wkda + '\'' + 
-			",pageSize = '" + pageSize + '\'' + 
-			",totalPageCount = '" + totalPageCount + '\'' + 
-			",page = '" + page + '\'' + 
+		return
+			"AutoResponse{" +
+			"wkda = '" + wkda + '\'' +
+			",pageSize = '" + pageSize + '\'' +
+			",totalPageCount = '" + totalPageCount + '\'' +
+			",page = '" + page + '\'' +
 			"}";
 		}
 }

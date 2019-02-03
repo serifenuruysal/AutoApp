@@ -19,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 
+/**
+ * Created by S.Nur Uysal on 3.02.2019.
+ */
 public class MainActivity extends AppCompatActivity {
     MainActivityBinding binding;
     List<String> mainTypes = new ArrayList<String>();

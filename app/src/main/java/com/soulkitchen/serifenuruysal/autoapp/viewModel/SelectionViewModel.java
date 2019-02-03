@@ -1,7 +1,7 @@
 package com.soulkitchen.serifenuruysal.autoapp.viewModel;
 
 import com.soulkitchen.serifenuruysal.autoapp.api.ApiClient;
-import com.soulkitchen.serifenuruysal.autoapp.models.Response;
+import com.soulkitchen.serifenuruysal.autoapp.models.AutoResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,9 @@ import androidx.lifecycle.ViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+
 /**
- * Created by S.Nur Uysal on 5.12.2018.
+ * Created by S.Nur Uysal on 3.02.2019.
  */
 public class SelectionViewModel  extends ViewModel implements Observable {
     String selectedMainType = "";
@@ -39,12 +40,12 @@ public class SelectionViewModel  extends ViewModel implements Observable {
 
 
     public void getManufacturer(int page) {
-        ApiClient.getInstance().getManufacturer(0, 10).enqueue(new Callback<Response>() {
+        ApiClient.getInstance().getManufacturer(0, 100).enqueue(new Callback<AutoResponse>() {
 
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(Call<AutoResponse> call, retrofit2.Response<AutoResponse> response) {
                 if (response != null && response.body() != null) {
-                    Response result = response.body();
+                    AutoResponse result = response.body();
                     HashMap<String, String> map = result.getWkda();
                     manufacturerMap.setValue(map);
 
@@ -52,7 +53,7 @@ public class SelectionViewModel  extends ViewModel implements Observable {
             }
 
             @Override
-            public void onFailure(Call<Response> call, Throwable t) {
+            public void onFailure(Call<AutoResponse> call, Throwable t) {
             }
         });
     }
@@ -65,12 +66,12 @@ public class SelectionViewModel  extends ViewModel implements Observable {
                 break;
             }
         }
-        ApiClient.getInstance().getMainTypes(0, 10, selectedManufacturer).enqueue(new Callback<Response>() {
+        ApiClient.getInstance().getMainTypes(0, 50, selectedManufacturer).enqueue(new Callback<AutoResponse>() {
 
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(Call<AutoResponse> call, retrofit2.Response<AutoResponse> response) {
                 if (response != null && response.body() != null) {
-                    Response result = response.body();
+                    AutoResponse result = response.body();
                     HashMap<String, String> map = result.getWkda();
                     mainTypesMap.setValue(map);
 
@@ -78,7 +79,7 @@ public class SelectionViewModel  extends ViewModel implements Observable {
             }
 
             @Override
-            public void onFailure(Call<Response> call, Throwable t) {
+            public void onFailure(Call<AutoResponse> call, Throwable t) {
             }
         });
     }
@@ -92,19 +93,19 @@ public class SelectionViewModel  extends ViewModel implements Observable {
                 break;
             }
         }
-        ApiClient.getInstance().getBuildDates(selectedManufacturer, selectedMainType).enqueue(new Callback<Response>() {
+        ApiClient.getInstance().getBuildDates(selectedManufacturer, selectedMainType).enqueue(new Callback<AutoResponse>() {
 
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(Call<AutoResponse> call, retrofit2.Response<AutoResponse> response) {
                 if (response != null && response.body() != null) {
-                    Response result = response.body();
+                    AutoResponse result = response.body();
                     HashMap<String, String> map = result.getWkda();
                     buildDateMap.setValue(map);
                 }
             }
 
             @Override
-            public void onFailure(Call<Response> call, Throwable t) {
+            public void onFailure(Call<AutoResponse> call, Throwable t) {
             }
         });
     }
