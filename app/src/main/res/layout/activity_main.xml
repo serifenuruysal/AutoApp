@@ -1,0 +1,53 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.MovieFragment">
+
+    <data class="MainActivityBinding">
+
+        <variable
+            name="viewModel"
+            type="com.soulkitchen.serifenuruysal.autoapp.viewModel.SelectionViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/my_spinner_m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ms_arrowColor="#0000FF"
+            app:ms_arrowSize="16dp"
+            app:ms_floatingLabelColor="#00FF00"
+            app:ms_floatingLabelText="Manufacturer"
+            app:ms_hint="Select a Manufacturer"
+            app:ms_multiline="true" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/my_spinner_mt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ms_arrowColor="#0000FF"
+            app:ms_arrowSize="16dp"
+            app:ms_floatingLabelColor="#00FF00"
+            app:ms_floatingLabelText="Main Type"
+            app:ms_hint="Select a Main Type"
+            app:ms_multiline="true" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/my_spinner_bd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ms_arrowColor="#0000FF"
+            app:ms_arrowSize="16dp"
+            app:ms_floatingLabelColor="#00FF00"
+            app:ms_floatingLabelText="Build Date"
+            app:ms_multiline="true"
+            app:ms_hint="Select a Build Date"/>
+    </LinearLayout>
+
+
+</layout>
